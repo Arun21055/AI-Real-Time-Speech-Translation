@@ -1,49 +1,51 @@
-# 🚀 Milestone 4 – Deployment and Embedding into OTT Platform
+# 🚀 Milestone 4 – Translation API (Deployment Prototype)
 
-## 🕒 Duration
-**Weeks 7–8**
+| | |
+|---|---|
+| **Duration** | Weeks 7–8 |
+| **Status** | 🔄 Prototype: API built and runs locally; cloud deployment and OTT integration are future work |
+| **Code** | `src/deploy_app.py` |
 
-## 🎯 Objective
-Deploy the **real-time speech translation system** to a production-ready environment
-and embed it within OTT (Over-The-Top) media platforms for seamless multilingual user experience.
+## Objective
+Expose the translation module as a web API so other applications (for example an OTT player) can request translations.
 
----
+## Tasks
+- ✅ Built a **FastAPI** service with `GET /`, `GET /health` and `POST /translate`.
+- ✅ Added input validation and error handling (empty text → 400, service failure → 502).
+- ✅ Credentials are read from environment variables.
+- 🔄 Cloud deployment (Azure App Service / Container Apps): **planned, not yet done**.
+- 🔄 OTT player integration: **planned, not yet done**.
 
-## 🧱 Tasks Completed
-- ✅ Packaged and containerised the full project for deployment.  
-- ✅ Built a **FastAPI-based backend service** for speech translation.  
-- ✅ Deployed the API on **Azure App Service / Azure Container Instances**.  
-- ✅ Embedded the translation stream into an OTT player prototype (frontend or API integration).  
+## Tools & Technologies
+- FastAPI, Uvicorn, Pydantic
+- Azure OpenAI
 
----
+## Run locally
+```bash
+uvicorn src.deploy_app:app --reload
+```
+Open `http://127.0.0.1:8000/docs` for the interactive API documentation.
 
-## 🧰 Tools & Technologies
-- **FastAPI** – for API hosting  
-- **Azure App Service / Azure Container Instances** – for cloud deployment  
-- **Azure OpenAI & Speech SDK** – translation pipeline  
-- **HTML5 Audio / JS player** – OTT integration  
-
----
-
-## ⚙️ Deployment Workflow
-
-
----
-
-## 🧩 Steps for Deployment
-1. **Containerise** the app (optional):
-   ```bash
-   docker build -t ai-translation-app .
-   docker run -p 8000:8000 ai-translation-app
-
-az webapp up --name ai-translation-api --resource-group myResourceGroup --sku B1
-https://ai-translation-api.azurewebsites.net/translate
-
-curl -X POST "https://ai-translation-api.azurewebsites.net/translate" \
+## Example request
+```bash
+curl -X POST "http://127.0.0.1:8000/translate" \
      -H "Content-Type: application/json" \
-     -d '{"text": "Welcome to the match!", "target_lang": "hi"}'
+     -d '{"text": "Welcome to the match!", "target_lang": "es"}'
+```
+
+## Example response
+```json
 {
-  "translated_text": "मैच में आपका स्वागत है!",
+  "translated_text": "¡Bienvenidos al partido!",
+  "target_lang": "es",
   "status": "success"
 }
+```
 
+## Planned deployment steps
+1. Containerise the app with Docker.
+2. Deploy the container to Azure App Service or Azure Container Apps.
+3. Store keys in the platform's secret settings, not in code.
+4. Connect an OTT player prototype to the `/translate` endpoint.
+
+⬅️ [Milestone 3](milestone3.md)
