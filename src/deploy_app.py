@@ -1,5 +1,3 @@
-
-Deploy app · PY
 """
 Milestone 4 - Deployment API for Real-Time Translation
 This FastAPI app exposes a REST endpoint for text translation.
