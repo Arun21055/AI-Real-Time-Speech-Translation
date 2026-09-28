@@ -1,5 +1,4 @@
 
-Translatemodel · PY
 import os
 from openai import AzureOpenAI
  
