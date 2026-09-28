@@ -1,5 +1,4 @@
 
-Pipeline speech translation · PY
 """
 End-to-end real-time speech-to-speech translation using ONLY Azure Speech
 (no Azure OpenAI needed). Speak -> recognize -> translate -> speak in target language.
