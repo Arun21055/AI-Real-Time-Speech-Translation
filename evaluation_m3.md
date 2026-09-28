@@ -1,20 +1,24 @@
+# 🧾 Evaluation – Milestone 3 (Real-Time Pipeline)
 
----
+**Evaluation week:** 6
 
-## 📘 **2️⃣ evaluation_m3.md**
-```markdown
-# 🧾 Evaluation Criteria – Milestone 3
+## Criteria and status
 
-## ✅ Evaluation Week 6
+| Criterion | Target | Status |
+|---|---|---|
+| Speech → translation → speech pipeline works | End-to-end demo | ✅ Implemented (`realtime_pipeline.py`) |
+| Audible playback in target language | Yes | ✅ Azure neural voice |
+| Language switching | 3+ languages | ✅ Chosen at start-up via command-line arguments |
+| End-to-end latency | < 3 s | 🔄 Translation time is printed; full end-to-end timing not yet benchmarked |
+| Continuous streaming | Word-by-word | ⏳ Currently sentence-by-sentence |
 
-### 🔹 Completion Metrics
-- Fully working **real-time speech-to-speech** translation pipeline.  
-- Integration of **STT → Translation → TTS** with latency < 3 seconds.  
-- Accurate translation and audible playback in target language.  
-- Seamless switch between at least 3 languages (e.g., English, Hindi, Spanish).
+## Deliverables
+1. End-to-end code: `src/realtime_pipeline.py`
+2. Alternative pipelines: `src/pipeline_openai.py`, `src/pipeline_speech_translation.py`
+3. Dependencies: `src/requirements.txt`
 
-### 📊 Deliverables
-1. End-to-end code (`realtime_pipeline.py`).  
-2. Demonstration video (optional) showing real-time translation.  
-3. Updated dependencies (`requirements.txt`).  
-4. System performance report (latency + accuracy metrics).
+## How to verify
+```bash
+python src/realtime_pipeline.py hi hi-IN
+```
+Speak an English sentence and confirm the Hindi translation is printed and spoken.
