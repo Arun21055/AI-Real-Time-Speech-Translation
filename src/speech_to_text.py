@@ -1,5 +1,4 @@
 
-Speech to text · PY
 """Milestone 1: live microphone speech -> text using Azure Speech-to-Text."""
 import os
 import time
