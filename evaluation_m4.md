@@ -1,20 +1,26 @@
+# 🧾 Evaluation – Milestone 4 (Translation API)
 
----
+**Evaluation week:** 8
 
-## 📘 **2️⃣ evaluation_m4.md**
-```markdown
-# 🧾 Evaluation Criteria – Milestone 4
+## Criteria and status
 
-## ✅ Evaluation Week 8
+| Criterion | Target | Status |
+|---|---|---|
+| Working API endpoint | `POST /translate` | ✅ Implemented (`deploy_app.py`) |
+| Health check and error handling | Yes | ✅ `/health`, validation, 502 on service errors |
+| Cloud deployment | Azure App Service / Container | ⏳ Future work |
+| OTT player integration | Prototype | ⏳ Future work |
+| Low end-to-end latency | < 3 s | 🔄 Not yet benchmarked |
 
-### 🔹 Completion Metrics
-- Successful **deployment** of translation system on Azure (App Service or Container).  
-- Working **API endpoint** for real-time translation requests.  
-- Verified **integration with OTT playback** (frontend or prototype).  
-- Maintained **low latency (<3 seconds)** for end-to-end translation.  
+## Deliverables
+1. API code: `src/deploy_app.py`
+2. Run instructions and example request: `milestone4.md`
 
-### 📊 Deliverables
-1. Deployed app URL / endpoint.  
-2. Deployment code (`deploy_app.py`).  
-3. Screenshot or demonstration of OTT integration.  
-4. Final system documentation and repository structure.
+## How to verify
+```bash
+uvicorn src.deploy_app:app --reload
+```
+Open `http://127.0.0.1:8000/docs`, try `POST /translate`, and confirm a translation is returned.
+
+## Summary
+The API prototype works locally. Cloud deployment and OTT integration are planned next steps.
