@@ -1,18 +1,20 @@
-## 📘 **3️⃣ evaluation.md**
-```markdown
-# 🧾 Evaluation Criteria – Milestone 1
+# 🧾 Evaluation – Milestone 1 (Speech Recognition)
 
-## ✅ Evaluation Week: 2
+**Evaluation week:** 2
 
-### 🔹 Completion Metrics
-- Successful setup and configuration of **Azure Speech-to-Text** service.
-- Demonstration of **real-time speech recognition** from microphone input.
-- Collection of **English and Hindi** sample audio datasets.
-- Proper **data preprocessing** for multi-language support.
+## Criteria and status
 
-### 📊 Deliverables
-1. Functional **speech recognition pipeline**.
-2. Documented setup and configuration steps.
-3. Speech data samples (if applicable).
-4. Source code (`speech_to_text.py`) and dependency list (`requirements.txt`).
+| Criterion | Status |
+|---|---|
+| Azure Speech-to-Text set up and configured | ✅ Done |
+| Real-time recognition from microphone input | ✅ Done (`speech_to_text.py`) |
+| English and Hindi support | ✅ Configurable source language (`en-US`, `hi-IN`) |
+| Recognition accuracy measured (WER) | ⏳ Not yet measured |
 
+## Deliverables
+1. Working speech recognition script: `src/speech_to_text.py`
+2. Setup instructions: see `README.md` and `milestone.md`
+3. Dependency list: `src/requirements.txt`
+
+## How to verify
+Run `python src/speech_to_text.py`, speak a sentence, and confirm the text is printed.
